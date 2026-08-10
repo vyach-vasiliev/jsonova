@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07111f" />
+    <meta
+      name="description"
+      content="JSONOVA turns JSON and XML responses into a readable, searchable workspace directly in Chrome. Free, local, and built for real API work."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="JSONOVA — JSON & XML, readable in one tab" />
+    <meta
+      property="og:description"
+      content="Format, search, fold, copy, and download JSON or XML directly in Chrome."
+    />
+    <meta property="og:image" content="assets/jsonova-social.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/jsonova-icon.png" />
+    <link rel="preload" href="assets/jsonova-json.png" as="image" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>JSONOVA — JSON & XML Formatter for Chrome</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "JSONOVA",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Chrome",
+        "description": "A Chrome extension that formats JSON and XML directly in the current tab.",
+        "image": "assets/jsonova-social.png",
+        "url": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="JSONOVA home">
+          <img src="assets/jsonova-icon.png" alt="" width="40" height="40" />
+          <span>JSONOVA</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#features">Features</a>
+          <a href="#url-details">URL details</a>
+          <a href="#xml">XML support</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+        <a
+          class="button button-small button-secondary"
+          href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Add to Chrome
+          <svg aria-hidden="true" viewBox="0 0 20 20">
+            <path d="M7 5h8v8M15 5 6 14" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero section-shell">
+        <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Free Chrome extension · JSON + XML
+            </div>
+            <h1>Raw data in.<br /><span>Clarity out.</span></h1>
+            <p class="hero-lead">
+              Turn JSON and XML responses into a fast, searchable workspace—right where you opened them.
+              No copy-paste. No upload. No context switching.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="chrome-mark" aria-hidden="true" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="3.6" />
+                  <path d="M12 8.4h9M8.9 13.8 4.4 6M15.1 13.8l-4.5 7.8" />
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+                Add JSONOVA to Chrome
+              </a>
+              <a class="text-link" href="#showcase">
+                See it in action
+                <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 4 6 6-6 6" /></svg>
+              </a>
+            </div>
+            <ul class="trust-list" aria-label="Product highlights">
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m4 10 4 4 8-9" /></svg>
+                Free to use
+              </li>
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m4 10 4 4 8-9" /></svg>
+                Local processing
+              </li>
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m4 10 4 4 8-9" /></svg>
+                No account
+              </li>
+            </ul>
+          </div>
+
+          <div id="showcase" class="showcase" aria-label="JSONOVA product preview">
+            <div class="showcase-toolbar">
+              <div class="format-tabs" role="tablist" aria-label="Preview document format">
+                <button
+                  id="json-tab"
+                  class="format-tab is-active"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="json-panel"
+                  data-format-tab="json"
+                >
+                  JSON
+                </button>
+                <button
+                  id="xml-tab"
+                  class="format-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="xml-panel"
+                  tabindex="-1"
+                  data-format-tab="xml"
+                >
+                  XML
+                </button>
+              </div>
+              <span><span class="live-dot"></span><span id="format-label">JSON · FORMATTED</span></span>
+            </div>
+            <div class="media-shell">
+              <div
+                id="json-panel"
+                class="product-shot is-active"
+                role="tabpanel"
+                aria-labelledby="json-tab"
+                data-format-panel="json"
+              >
+                <img
+                  src="assets/jsonova-json.png"
+                  alt="JSONOVA displaying a deeply nested JSON document with syntax highlighting, structure counts, and a clickable URL"
+                  width="1630"
+                  height="1720"
+                />
+              </div>
+              <div
+                id="xml-panel"
+                class="product-shot"
+                role="tabpanel"
+                aria-labelledby="xml-tab"
+                aria-hidden="true"
+                data-format-panel="xml"
+              >
+                <img
+                  src="assets/jsonova-xml.png"
+                  alt="JSONOVA displaying a formatted XML document with namespaces, CDATA, and folding controls"
+                  width="1766"
+                  height="1726"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="showcase-note">
+              <span>Real extension UI</span>
+              <span>Switch the preview</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container capability-strip" aria-label="Supported workflows">
+          <div><span>01</span><strong>Web responses</strong></div>
+          <div><span>02</span><strong>Local files</strong></div>
+          <div><span>03</span><strong>Deep payloads</strong></div>
+          <div><span>04</span><strong>Everyday debugging</strong></div>
+        </div>
+      </section>
+
+      <section id="features" class="section-shell section-muted">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="kicker">Built for the way you inspect data</p>
+            <h2>Everything you need.<br />Nothing between you and the response.</h2>
+            <p>
+              JSONOVA replaces the plain browser view only when it finds valid structured data. Regular pages stay regular.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card feature-card-wide reveal">
+              <div class="feature-icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3m13 5h3a2 2 0 0 0 2-2v-3M8 12h8" /></svg>
+              </div>
+              <div>
+                <p class="card-label">Stay in context</p>
+                <h3>One tab. Zero copy-paste.</h3>
+                <p>Open a response and work with it in place. Switch between formatted and raw views whenever you need the source.</p>
+              </div>
+              <div class="mini-workflow" aria-hidden="true">
+                <span>Open</span><i></i><span>Inspect</span><i></i><span>Act</span>
+              </div>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 4H4v16h3M17 4h3v16h-3M9 8h6M9 12h4M9 16h6" /></svg>
+              </div>
+              <p class="card-label">Navigate faster</p>
+              <h3>Deep data, made scannable.</h3>
+              <p>Search globally, fold branches, see structure counts, and keep large numbers easy to inspect.</p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1" /></svg>
+              </div>
+              <p class="card-label">Follow the trail</p>
+              <h3>Links behave like links.</h3>
+              <p>Highlight HTTP and HTTPS values and open them in a new window with a click.</p>
+            </article>
+
+            <article class="feature-card feature-card-wide reveal">
+              <div class="feature-icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6" /></svg>
+              </div>
+              <div>
+                <p class="card-label">Make it yours</p>
+                <h3>Your view, remembered.</h3>
+                <p>Choose light, dark, or live system theme. Tune fonts, wrapping, line numbers, folding, and custom CSS once.</p>
+              </div>
+              <div class="theme-palette" aria-label="Light, dark, and system theme support">
+                <span class="theme-swatch theme-light">Light</span>
+                <span class="theme-swatch theme-dark">Dark</span>
+                <span class="theme-swatch theme-system">System</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="url-details" class="section-shell url-section">
+        <div class="container url-grid">
+          <div class="url-copy reveal">
+            <p class="kicker">Understand the request too</p>
+            <h2>Read the URL behind the response.</h2>
+            <p>
+              Turn long API URLs into something you can actually scan. JSONOVA separates the source into protocol,
+              host, path, and individual query parameters without taking you away from the document.
+            </p>
+            <ul class="url-benefits">
+              <li>
+                <span class="url-benefit-icon">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 7h14M5 12h9M5 17h6" /></svg>
+                </span>
+                <span><strong>Inline view</strong> keeps the complete URL together with color-coded parts.</span>
+              </li>
+              <li>
+                <span class="url-benefit-icon">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 10h16M10 5v14" /></svg>
+                </span>
+                <span><strong>Table view</strong> makes every part and parameter easy to compare.</span>
+              </li>
+              <li>
+                <span class="url-benefit-icon">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 8h10v12H9zM5 16H4V4h10v1" /></svg>
+                </span>
+                <span><strong>Focused copy</strong> lets you take only the value you need.</span>
+              </li>
+            </ul>
+            <div class="url-anatomy" aria-label="URL parts displayed by JSONOVA">
+              <span>protocol</span><i>/</i><span>host</span><i>/</i><span>path</span><i>?</i><span>parameters</span>
+            </div>
+            <p class="url-availability"><span></span> Available for JSON and XML documents</p>
+          </div>
+
+          <div class="url-preview reveal" aria-label="URL Details preview">
+            <div class="url-preview-header">
+              <div>
+                <span class="url-preview-icon">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 11v6M12 7h.01" /></svg>
+                </span>
+                <span>URL DETAILS</span>
+              </div>
+              <div class="url-tabs" role="tablist" aria-label="URL Details view">
+                <button
+                  id="url-inline-tab"
+                  class="url-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="url-inline-panel"
+                  tabindex="-1"
+                  data-url-tab="inline"
+                >
+                  Inline
+                </button>
+                <button
+                  id="url-table-tab"
+                  class="url-tab is-active"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="url-table-panel"
+                  data-url-tab="table"
+                >
+                  Table
+                </button>
+              </div>
+            </div>
+            <div class="url-media-shell">
+              <div
+                id="url-inline-panel"
+                class="url-panel"
+                role="tabpanel"
+                aria-labelledby="url-inline-tab"
+                aria-hidden="true"
+                data-url-panel="inline"
+              >
+                <img
+                  src="assets/url-details-inline.png"
+                  alt="JSONOVA URL Details inline view with color-coded protocol, host, path, and query parameters"
+                  width="697"
+                  height="339"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                id="url-table-panel"
+                class="url-panel is-active"
+                role="tabpanel"
+                aria-labelledby="url-table-tab"
+                data-url-panel="table"
+              >
+                <img
+                  src="assets/url-details-table.png"
+                  alt="JSONOVA URL Details table with protocol, host, path, and query parameters in separate rows"
+                  width="698"
+                  height="514"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="url-preview-footer">
+              <span><i></i><span id="url-view-label">TABLE VIEW</span></span>
+              <span>Switch views above</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="xml" class="section-shell xml-section">
+        <div class="container xml-grid">
+          <div class="xml-copy reveal">
+            <p class="kicker">New in JSONOVA 1.2</p>
+            <h2>XML finally feels at home in Chrome.</h2>
+            <p>
+              Open web responses and local <code>.xml</code> files with the same focused workflow you use for JSON.
+            </p>
+            <ul class="check-grid">
+              <li><span>✓</span> Syntax highlighting</li>
+              <li><span>✓</span> Element folding</li>
+              <li><span>✓</span> Namespaces</li>
+              <li><span>✓</span> Comments</li>
+              <li><span>✓</span> CDATA</li>
+              <li><span>✓</span> Mixed content</li>
+            </ul>
+            <a
+              class="button button-secondary"
+              href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open XML with JSONOVA
+              <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M7 5h8v8M15 5 6 14" /></svg>
+            </a>
+          </div>
+          <div class="xml-visual reveal">
+            <div class="xml-glow" aria-hidden="true"></div>
+            <div class="media-shell media-shell-tall">
+              <img
+                src="assets/jsonova-xml.png"
+                alt="Formatted XML in JSONOVA showing namespace attributes, nested elements, CDATA, and fold controls"
+                width="1766"
+                height="1726"
+                loading="lazy"
+              />
+            </div>
+            <div class="floating-chip chip-one"><span></span> Namespace aware</div>
+            <div class="floating-chip chip-two"><span></span> Local .xml ready</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell workflow-section">
+        <div class="container">
+          <div class="section-heading section-heading-centered reveal">
+            <p class="kicker">A shorter path from response to answer</p>
+            <h2>Open. Understand. Move on.</h2>
+          </div>
+          <ol class="workflow-list">
+            <li class="reveal">
+              <span class="step-number">01</span>
+              <div class="step-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 9h16M8 7h.01M11 7h.01" /></svg></div>
+              <h3>Open the document</h3>
+              <p>Visit a JSON or XML URL, or open a local file after enabling file access in Chrome.</p>
+            </li>
+            <li class="reveal">
+              <span class="step-number">02</span>
+              <div class="step-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m16 16 5 5M8 11h6M11 8v6" /></svg></div>
+              <h3>Find what matters</h3>
+              <p>Search, fold, inspect URL parts, and follow links without leaving the current tab.</p>
+            </li>
+            <li class="reveal">
+              <span class="step-number">03</span>
+              <div class="step-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></svg></div>
+              <h3>Copy or download</h3>
+              <p>Take the raw or formatted document with you using a generated filename and matching file type.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="privacy" class="section-shell privacy-section">
+        <div class="container privacy-card reveal">
+          <div class="privacy-mark">
+            <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3 27 8v7c0 7-4.6 12-11 14C9.6 27 5 22 5 15V8z" /><path d="m11 16 3 3 7-8" /></svg>
+          </div>
+          <div>
+            <p class="kicker">Your payload stays yours</p>
+            <h2>Local by design.</h2>
+            <p>
+              JSONOVA processes the current document in your browser. No JSON or XML uploads, no analytics,
+              no account, and no remote code.
+            </p>
+          </div>
+          <a class="text-link" href="privacy.html">
+            Read the privacy policy
+            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 4 6 6-6 6" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-shell final-cta-section">
+        <div class="container final-cta reveal">
+          <div class="final-orb" aria-hidden="true"></div>
+          <img src="assets/jsonova-icon.png" alt="" width="72" height="72" loading="lazy" />
+          <p class="kicker">Ready when your next response arrives</p>
+          <h2>Make structured data feel simple.</h2>
+          <p>Install JSONOVA and turn JSON or XML into a workspace in one click.</p>
+          <a
+            class="button button-primary"
+            href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="chrome-mark" aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3.6" />
+              <path d="M12 8.4h9M8.9 13.8 4.4 6M15.1 13.8l-4.5 7.8" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+            Add JSONOVA to Chrome — Free
+          </a>
+          <span class="cta-note">No sign-up. Remove anytime.</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand brand-footer" href="#top" aria-label="JSONOVA home">
+          <img src="assets/jsonova-icon.png" alt="" width="34" height="34" loading="lazy" />
+          <span>JSONOVA</span>
+        </a>
+        <p>JSON and XML, readable in one tab.</p>
+        <div class="footer-links">
+          <a href="https://github.com/JSONOVA/jsonova-json-formatter-ext" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="privacy.html">Privacy</a>
+          <a
+            href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Chrome Web Store</a>
+        </div>
+        <span>© <span id="current-year">2026</span> JSONOVA</span>
+      </div>
+    </footer>
+  </body>
+</html>
