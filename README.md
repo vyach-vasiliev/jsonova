@@ -11,8 +11,6 @@
   <a href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"><strong>Add JSONOVA to Chrome</strong></a>
   ·
   <a href="./privacy.html">Privacy</a>
-  ·
-  <a href="https://github.com/JSONOVA/jsonova-json-formatter-ext">Extension source</a>
 </p>
 
 ## See the extension, not a mockup
