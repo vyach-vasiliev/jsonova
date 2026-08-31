@@ -14,8 +14,11 @@
       property="og:description"
       content="Format, search, fold, copy, and download JSON or XML directly in Chrome."
     />
-    <meta property="og:image" content="assets/jsonova-social.png" />
+    <meta property="og:url" content="https://jsonova.onrender.com/" />
+    <meta property="og:site_name" content="JSONOVA" />
+    <meta property="og:image" content="https://jsonova.onrender.com/assets/jsonova-social.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://jsonova.onrender.com/" />
     <link rel="icon" href="assets/jsonova-icon.png" />
     <link rel="preload" href="assets/jsonova-json.png" as="image" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
@@ -23,18 +26,31 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "JSONOVA",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Chrome",
-        "description": "A Chrome extension that formats JSON and XML directly in the current tab.",
-        "image": "assets/jsonova-social.png",
-        "url": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://jsonova.onrender.com/#website",
+            "url": "https://jsonova.onrender.com/",
+            "name": "JSONOVA"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://jsonova.onrender.com/#software",
+            "name": "JSONOVA",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Google Chrome",
+            "description": "A Chrome extension that formats JSON and XML directly in the current tab.",
+            "image": "https://jsonova.onrender.com/assets/jsonova-social.png",
+            "url": "https://jsonova.onrender.com/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
+            "offers": {
+              "@type": "Offer",
+              "price": 0,
+              "priceCurrency": "USD",
+              "url": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
+            }
+          }
+        ]
       }
     </script>
     <script src="script.js" defer></script>
@@ -52,6 +68,7 @@
           <a href="#features">Features</a>
           <a href="#url-details">URL details</a>
           <a href="#xml">XML support</a>
+          <a href="#faq">FAQ</a>
           <a href="#privacy">Privacy</a>
         </nav>
         <a
@@ -435,6 +452,65 @@
               <p>Take the raw or formatted document with you using a generated filename and matching file type.</p>
             </li>
           </ol>
+        </div>
+      </section>
+
+      <section id="faq" class="section-shell faq-section">
+        <div class="container">
+          <div class="section-heading section-heading-centered reveal">
+            <p class="kicker">Frequently asked questions</p>
+            <h2>JSONOVA FAQ</h2>
+            <p>Quick answers about using the JSON and XML formatter for Chrome.</p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>How does JSONOVA format JSON and XML in Chrome?</summary>
+              <div class="faq-answer">
+                <p>
+                  JSONOVA detects valid JSON or XML in the current tab and replaces the plain browser view with a
+                  searchable, foldable workspace. Regular web pages remain unchanged.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can JSONOVA open local JSON and XML files?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. Enable <strong>Allow access to file URLs</strong> in Chrome's extension settings, then open a
+                  local <code>.json</code> or <code>.xml</code> file in Chrome.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Does JSONOVA upload my API responses or files?</summary>
+              <div class="faq-answer">
+                <p>
+                  No. JSONOVA processes JSON, XML, URLs, and viewer preferences locally in your browser and does not
+                  send them to JSONOVA-controlled servers, analytics, or advertising services.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Is JSONOVA free, and do I need an account?</summary>
+              <div class="faq-answer">
+                <p>JSONOVA is free to use and does not require an account or sign-up.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What can I do with a formatted response?</summary>
+              <div class="faq-answer">
+                <p>
+                  Search the full document, fold nested structures, switch between raw and formatted views, inspect
+                  URL parts, follow links, copy content, or download the JSON or XML file.
+                </p>
+              </div>
+            </details>
+          </div>
         </div>
       </section>
 
