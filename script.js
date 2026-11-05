@@ -1,6 +1,13 @@
 const formatTabs = Array.from(document.querySelectorAll("[data-format-tab]"));
 const formatPanels = Array.from(document.querySelectorAll("[data-format-panel]"));
 const formatLabel = document.querySelector("#format-label");
+const formatLabels = {
+  json: "JSON · FORMATTED",
+  xml: "XML · FORMATTED",
+  csv: "CSV · TABLE",
+  tsv: "TSV · TABLE",
+  markdown: "MARKDOWN · PREVIEW",
+};
 
 function selectFormat(format, moveFocus = false) {
   formatTabs.forEach((tab) => {
@@ -20,19 +27,19 @@ function selectFormat(format, moveFocus = false) {
   });
 
   if (formatLabel) {
-    formatLabel.textContent = `${format.toUpperCase()} · FORMATTED`;
+    formatLabel.textContent = formatLabels[format];
   }
 }
 
 formatTabs.forEach((tab, index) => {
   tab.addEventListener("click", () => selectFormat(tab.dataset.formatTab));
   tab.addEventListener("keydown", (event) => {
-    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
       return;
     }
     event.preventDefault();
     const direction = event.key === "ArrowRight" ? 1 : -1;
-    const nextIndex = (index + direction + formatTabs.length) % formatTabs.length;
+    const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? formatTabs.length - 1 : (index + direction + formatTabs.length) % formatTabs.length;
     selectFormat(formatTabs[nextIndex].dataset.formatTab, true);
   });
 });

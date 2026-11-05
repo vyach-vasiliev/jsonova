@@ -6,13 +6,13 @@
     <meta name="theme-color" content="#07111f" />
     <meta
       name="description"
-      content="JSONOVA turns JSON and XML responses into a readable, searchable workspace directly in Chrome. Free, local, and built for real API work."
+      content="View JSON, XML, CSV, TSV and Markdown in Chrome. Search and sort tables, read Markdown, and switch to the original source. Free and local."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JSONOVA — JSON & XML, readable in one tab" />
+    <meta property="og:title" content="JSONOVA — JSON, XML, CSV/TSV & Markdown in one tab" />
     <meta
       property="og:description"
-      content="Format, search, fold, copy, and download JSON or XML directly in Chrome."
+      content="Format JSON and XML, search and sort CSV/TSV tables, and read Markdown directly in Chrome. Original source is always one click away."
     />
     <meta property="og:url" content="https://jsonova.onrender.com/" />
     <meta property="og:site_name" content="JSONOVA" />
@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="preload" href="assets/jsonova-json.png" as="image" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
-    <title>JSONOVA — JSON & XML Formatter for Chrome</title>
+    <title>JSONOVA — JSON, XML, CSV/TSV & Markdown for Chrome</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -42,7 +42,7 @@
             "name": "JSONOVA",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Google Chrome",
-            "description": "A Chrome extension that formats JSON and XML directly in the current tab.",
+            "description": "A Chrome extension for JSON and XML formatting, searchable and sortable CSV/TSV tables, and rendered Markdown, with an original-source editor.",
             "image": "https://jsonova.onrender.com/assets/jsonova-social.png",
             "url": "https://jsonova.onrender.com/",
             "downloadUrl": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
@@ -70,7 +70,7 @@
         <nav class="main-nav" aria-label="Primary navigation">
           <a href="#features">Features</a>
           <a href="#url-details">URL details</a>
-          <a href="#xml">XML support</a>
+          <a href="#showcase">Formats</a>
           <a href="#faq">FAQ</a>
           <a href="#privacy">Privacy</a>
         </nav>
@@ -96,12 +96,12 @@
           <div class="hero-copy">
             <div class="eyebrow">
               <span class="eyebrow-dot"></span>
-              Free Chrome extension · JSON + XML
+              Free Chrome extension · 5 document formats
             </div>
             <h1>Raw data in.<br /><span>Clarity out.</span></h1>
             <p class="hero-lead">
-              Turn JSON and XML responses into a fast, searchable workspace—right where you opened them.
-              No copy-paste. No upload. No context switching.
+              Format JSON and XML, search and sort CSV/TSV tables, and read Markdown—right where you opened them.
+              Switch to the original source whenever you need it. No upload. No context switching.
             </p>
             <div class="hero-actions">
               <a
@@ -164,6 +164,9 @@
                 >
                   XML
                 </button>
+                <button id="csv-tab" class="format-tab" type="button" role="tab" aria-selected="false" aria-controls="csv-panel" tabindex="-1" data-format-tab="csv">CSV</button>
+                <button id="tsv-tab" class="format-tab" type="button" role="tab" aria-selected="false" aria-controls="tsv-panel" tabindex="-1" data-format-tab="tsv">TSV</button>
+                <button id="markdown-tab" class="format-tab" type="button" role="tab" aria-selected="false" aria-controls="markdown-panel" tabindex="-1" data-format-tab="markdown">Markdown</button>
               </div>
               <span><span class="live-dot"></span><span id="format-label">JSON · FORMATTED</span></span>
             </div>
@@ -198,6 +201,15 @@
                   loading="lazy"
                 />
               </div>
+              <div id="csv-panel" class="product-shot" role="tabpanel" aria-labelledby="csv-tab" aria-hidden="true" data-format-panel="csv">
+                <img src="assets/jsonova-csv.png" alt="JSONOVA CSV table with production search matches highlighted and two sorting levels for region and response latency" width="1630" height="1720" loading="lazy" />
+              </div>
+              <div id="tsv-panel" class="product-shot" role="tabpanel" aria-labelledby="tsv-tab" aria-hidden="true" data-format-panel="tsv">
+                <img src="assets/jsonova-tsv.png" alt="JSONOVA TSV inventory table sorted by stock, with the row number column switched off" width="1630" height="1720" loading="lazy" />
+              </div>
+              <div id="markdown-panel" class="product-shot" role="tabpanel" aria-labelledby="markdown-tab" aria-hidden="true" data-format-panel="markdown">
+                <img src="assets/jsonova-markdown.png" alt="JSONOVA Markdown preview of a deployment runbook with headings, a checklist, a table, code blocks and a blockquote" width="1630" height="1720" loading="lazy" />
+              </div>
             </div>
             <div class="showcase-note">
               <span>Real extension UI</span>
@@ -220,7 +232,7 @@
             <p class="kicker">Built for the way you inspect data</p>
             <h2>Everything you need.<br />Nothing between you and the response.</h2>
             <p>
-              JSONOVA replaces the plain browser view only when it finds valid structured data. Regular pages stay regular.
+              A focused view for each supported document, with the original text always available in RAW. Regular web pages stay regular.
             </p>
           </div>
 
@@ -246,6 +258,25 @@
               <p class="card-label">Navigate faster</p>
               <h3>Deep data, made scannable.</h3>
               <p>Search globally, fold branches, see structure counts, and keep large numbers easy to inspect.</p>
+            </article>
+            <article class="feature-card feature-card-wide reveal">
+              <div class="feature-icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M3 15h18M9 3v18" /></svg>
+              </div>
+              <div>
+                <p class="card-label">CSV + TSV tables</p>
+                <h3>Find the row. Keep the context.</h3>
+                <p>Search every column with highlighted matches. Shift-click headers to sort by multiple columns, sort by original row number, or reset to file order. Row number visibility is remembered.</p>
+              </div>
+              <div class="mini-workflow" aria-label="CSV and TSV both keep their original source"><span>CSV</span><i></i><span>TSV</span><i></i><span>RAW</span></div>
+            </article>
+            <article class="feature-card reveal">
+              <div class="feature-icon">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8zM14 3v6h6M7 13h10M7 17h7" /></svg>
+              </div>
+              <p class="card-label">Markdown preview</p>
+              <h3>Read the document, not the markup.</h3>
+              <p>Headings, lists, tables, links, quotes and code blocks in a readable page. Switch to RAW to edit the source, then return to the updated preview.</p>
             </article>
 
             <article class="feature-card reveal">
@@ -308,7 +339,7 @@
             <div class="url-anatomy" aria-label="URL parts displayed by JSONOVA">
               <span>protocol</span><i>/</i><span>host</span><i>/</i><span>path</span><i>?</i><span>parameters</span>
             </div>
-            <p class="url-availability"><span></span> Available for JSON and XML documents</p>
+            <p class="url-availability"><span></span> Available for all five document formats</p>
           </div>
 
           <div class="url-preview reveal" aria-label="URL Details preview">
@@ -440,13 +471,13 @@
               <span class="step-number">01</span>
               <div class="step-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 9h16M8 7h.01M11 7h.01" /></svg></div>
               <h3>Open the document</h3>
-              <p>Visit a JSON or XML URL, or open a local file after enabling file access in Chrome.</p>
+              <p>Visit a supported document URL, or open a local file after enabling file access in Chrome.</p>
             </li>
             <li class="reveal">
               <span class="step-number">02</span>
               <div class="step-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m16 16 5 5M8 11h6M11 8v6" /></svg></div>
               <h3>Find what matters</h3>
-              <p>Search, fold, inspect URL parts, and follow links without leaving the current tab.</p>
+              <p>Fold JSON/XML, search and sort CSV/TSV, or read Markdown without leaving the current tab.</p>
             </li>
             <li class="reveal">
               <span class="step-number">03</span>
@@ -463,27 +494,36 @@
           <div class="section-heading section-heading-centered reveal">
             <p class="kicker">Frequently asked questions</p>
             <h2>JSONOVA FAQ</h2>
-            <p>Quick answers about using the JSON and XML formatter for Chrome.</p>
+            <p>Quick answers about JSON, XML, CSV/TSV and Markdown in Chrome.</p>
           </div>
 
           <div class="faq-list">
             <details class="faq-item">
-              <summary>How does JSONOVA format JSON and XML in Chrome?</summary>
+              <summary>Which document formats does JSONOVA support?</summary>
               <div class="faq-answer">
                 <p>
-                  JSONOVA detects valid JSON or XML in the current tab and replaces the plain browser view with a
-                  searchable, foldable workspace. Regular web pages remain unchanged.
+                  JSONOVA supports JSON, XML, CSV, TSV and Markdown. JSON and XML get syntax highlighting and folding;
+                  CSV and TSV open as searchable, sortable tables; Markdown opens as a rendered document.
+                  Each format keeps the original text in the RAW editor. Regular web pages remain unchanged.
                 </p>
               </div>
             </details>
 
             <details class="faq-item">
-              <summary>Can JSONOVA open local JSON and XML files?</summary>
+              <summary>Can JSONOVA open local files?</summary>
               <div class="faq-answer">
                 <p>
                   Yes. Enable <strong>Allow access to file URLs</strong> in Chrome's extension settings, then open a
-                  local <code>.json</code> or <code>.xml</code> file in Chrome.
+                  local <code>.json</code>, <code>.xml</code>, <code>.tsv</code> or <code>.md</code> file in Chrome.
+                  Chrome may download CSV files before the extension can display them; see the CSV answer below.
                 </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Why does Chrome download my CSV instead of showing a table?</summary>
+              <div class="faq-answer">
+                <p>JSONOVA can display CSV when Chrome opens it as a text document. Responses served as downloads, and local CSV files Chrome chooses to download, do not reach the viewer. For an endpoint you control, serve the CSV as <code>text/plain</code> and allow inline viewing instead of attachment downloads.</p>
               </div>
             </details>
 
@@ -491,7 +531,7 @@
               <summary>Does JSONOVA upload my API responses or files?</summary>
               <div class="faq-answer">
                 <p>
-                  No. JSONOVA processes JSON, XML, URLs, and viewer preferences locally in your browser and does not
+                  No. JSONOVA processes JSON, XML, CSV, TSV, Markdown, URLs, and viewer preferences locally in your browser and does not
                   send them to JSONOVA-controlled servers, analytics, or advertising services.
                 </p>
               </div>
@@ -509,7 +549,8 @@
               <div class="faq-answer">
                 <p>
                   Search the full document, fold nested structures, switch between raw and formatted views, inspect
-                  URL parts, follow links, copy content, or download the JSON or XML file.
+                  URL parts, follow links, copy content, or download the source. CSV/TSV adds highlighted table search
+                  and multiple sorting levels; Markdown adds a rendered preview. Edits in RAW are kept when you return to either view.
                 </p>
               </div>
             </details>
@@ -526,7 +567,7 @@
             <p class="kicker">Your payload stays yours</p>
             <h2>Local by design.</h2>
             <p>
-              JSONOVA processes the current document in your browser. No JSON or XML uploads, no analytics,
+              JSONOVA processes the current document in your browser. No document uploads, no analytics,
               no account, and no remote code.
             </p>
           </div>
@@ -543,7 +584,7 @@
           <img src="assets/jsonova-icon.svg" alt="" width="72" height="72" loading="lazy" />
           <p class="kicker">Ready when your next response arrives</p>
           <h2>Make structured data feel simple.</h2>
-          <p>Install JSONOVA and turn JSON or XML into a workspace in one click.</p>
+          <p>Inspect JSON and XML, explore CSV/TSV tables, and read Markdown with one extension.</p>
           <a
             class="button button-primary"
             href="https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji"
@@ -568,7 +609,7 @@
           <img src="assets/jsonova-icon.svg" alt="" width="34" height="34" loading="lazy" />
           <span>JSONOVA</span>
         </a>
-        <p>JSON and XML, readable in one tab.</p>
+        <p>JSON, XML, CSV/TSV and Markdown in one tab.</p>
         <div class="footer-links">
           <a href="https://github.com/JSONOVA/jsonova-json-formatter-ext" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="privacy.html">Privacy</a>
