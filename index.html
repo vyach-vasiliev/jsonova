@@ -34,18 +34,65 @@
             "@type": "WebSite",
             "@id": "https://jsonova.onrender.com/#website",
             "url": "https://jsonova.onrender.com/",
-            "name": "JSONOVA"
+            "name": "JSONOVA",
+            "inLanguage": "en",
+            "about": { "@id": "https://jsonova.onrender.com/#software" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://jsonova.onrender.com/#webpage",
+            "url": "https://jsonova.onrender.com/",
+            "name": "JSONOVA — JSON, XML, CSV/TSV & Markdown for Chrome",
+            "description": "View JSON, XML, CSV, TSV and Markdown in Chrome. Search and sort tables, read Markdown, and switch to the original source. Free and local.",
+            "inLanguage": "en",
+            "isPartOf": { "@id": "https://jsonova.onrender.com/#website" },
+            "mainEntity": { "@id": "https://jsonova.onrender.com/#software" },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://jsonova.onrender.com/assets/jsonova-social.png"
+            }
           },
           {
             "@type": "SoftwareApplication",
             "@id": "https://jsonova.onrender.com/#software",
             "name": "JSONOVA",
             "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Google Chrome",
+            "applicationSubCategory": "Browser extension",
+            "operatingSystem": "Any operating system supported by desktop Google Chrome",
+            "runtimePlatform": "Google Chrome",
+            "softwareRequirements": "Desktop Google Chrome. Local files require Allow access to file URLs. Chrome must display CSV as an inline text document rather than download it.",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
             "description": "A Chrome extension for JSON and XML formatting, searchable and sortable CSV/TSV tables, and rendered Markdown, with an original-source editor.",
             "image": "https://jsonova.onrender.com/assets/jsonova-social.png",
             "url": "https://jsonova.onrender.com/",
-            "downloadUrl": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
+            "mainEntityOfPage": { "@id": "https://jsonova.onrender.com/#webpage" },
+            "installUrl": "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
+            "sameAs": [
+              "https://chromewebstore.google.com/detail/lgccmeebjifcbcfpobkkcpoehgciamji",
+              "https://github.com/JSONOVA/jsonova-json-formatter-ext"
+            ],
+            "featureList": [
+              "JSON formatting, syntax highlighting, search, folding and structure counts",
+              "XML formatting with namespaces, comments, CDATA and folding",
+              "CSV and TSV tables with highlighted search and multi-column sorting",
+              "Table row numbers, remembered row-number visibility and reset to file order",
+              "Markdown previews with headings, lists, tables, links, quotes and code blocks",
+              "RAW source editing with updated table and Markdown previews",
+              "Copy and download the document source",
+              "Clickable HTTP and HTTPS links",
+              "Source URL details for protocol, host, path and query parameters",
+              "Light, dark and live system themes, font settings and custom CSS",
+              "Local document processing without uploads to JSONOVA servers or analytics",
+              "Free to use without an account or sign-up"
+            ],
+            "screenshot": [
+              "https://jsonova.onrender.com/assets/jsonova-json.png",
+              "https://jsonova.onrender.com/assets/jsonova-xml.png",
+              "https://jsonova.onrender.com/assets/jsonova-csv.png",
+              "https://jsonova.onrender.com/assets/jsonova-tsv.png",
+              "https://jsonova.onrender.com/assets/jsonova-markdown.png"
+            ],
             "offers": {
               "@type": "Offer",
               "price": 0,
